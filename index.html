@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cifrado César</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>Cifrado César</h1>
+        <section class="explanation">
+            <img src="https://i.imgur.com/sxQZvly.png" alt="" />
+            <p>
+                El cifrado César, también conocido como cifrado por
+                desplazamiento, es un método de cifrado simple y antiguo.
+                Funciona reemplazando cada letra del alfabeto original por otra
+                que se encuentra un número fijo de posiciones más adelante en el
+                mismo alfabeto. La clave del cifrado es ese número de posiciones
+                que se desplazan las letras.
+            </p>
+            <p>
+                Por ejemplo, si la clave es 3, la "a" se convierte en "d", la
+                "b" en "e", y así sucesivamente. Este proceso se puede invertir
+                para descifrar el mensaje.
+            </p>
+            <p>
+                Si bien el cifrado César es fácil de usar, no es muy seguro. Se
+                puede descifrar con relativa facilidad mediante análisis de
+                frecuencias o ataques por fuerza bruta. Por lo tanto, no se
+                recomienda para proteger información confidencial.
+            </p>
+        </section>
+        <section class="cipher">
+            <input class="cipher_input" type="text" />
+            <button>Cifrar</button>
+            <p class="cipher_output"></p>
+        </section>
+
+        <script src="./script.js"></script>
+    </body>
+</html>
