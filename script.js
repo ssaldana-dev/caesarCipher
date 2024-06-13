@@ -1,20 +1,31 @@
-let example = '¡Qué oña mundo!';
+const message = document.querySelector('#cipher_input');
+const cipherButton = document.querySelector('#cipher_button');
+let rounds = 3;
 
-let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-let vocalesConTildeMinusculas = ['á', 'é', 'í', 'ó', 'ú'];
-let vocalesConTildeMayusculas = ['Á', 'É', 'Í', 'Ó', 'Ú'];
+let mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','Á', 'É', 'Í', 'Ó', 'Ú'];
+let minusculas = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','á', 'é', 'í', 'ó', 'ú'];
 
-for (let i = 0; i <= example.length; i++) {
-    if (mayusculas.includes(example.charAt(i))) {
-        
-    } else if (minusculas.includes(example.charAt(i))) {
-        
-    } else if (vocalesConTildeMayusculas.includes(example.charAt(i))) {
-        
-    } else if (vocalesConTildeMinusculas.includes(example.charAt(i))) {
-        
-    } else {
-        
+function cipher (text, key) {
+    let cipheredText = '';
+
+    for (let i = 0; i <= text.length; i++) {
+        if (mayusculas.includes(text.charAt(i))) {
+            if (mayusculas.indexOf(text.charAt(i)) + key > mayusculas.length) {
+                cipheredText += mayusculas[(mayusculas.indexOf(text.charAt(i)) + key) - mayusculas.length];
+            } else {
+                cipheredText += mayusculas[mayusculas.indexOf(text.charAt(i)) + key];
+            }
+        } else if (minusculas.includes(text.charAt(i))) {
+            if (minusculas.indexOf(text.charAt(i)) + key > minusculas.length) {
+                cipheredText += minusculas[(minusculas.indexOf(text.charAt(i)) + key) - minusculas.length];
+            } else {
+                cipheredText += minusculas[minusculas.indexOf(text.charAt(i)) + key];
+            }
+        } else {
+            cipheredText += text.charAt(i);
+        }
     }
+
+    return cipheredText;
 }
+
